@@ -5,9 +5,23 @@
 
 import cv2
 import random
+import time
 import show_test_image as ti
 
 status = "left"
+
+def detect_gestures():
+    r = random.random()
+    ans = "right"
+
+    if r < 0.25:
+        ans = "down"
+    elif r < 0.5:
+        ans = "up"
+    elif r < 0.75:
+        ans = "left"
+    
+    return ans
 
 def eye_exam():
     global status
@@ -24,14 +38,24 @@ def eye_exam():
         while True:
             t = ti.show_test_image(testingValue)
             cv2.imshow('Image', t[0])
-            cv2.waitKey(0)
-            cv2.destroyAllWindows()
+            cv2.waitKey(1)
+            # cv2.destroyAllWindows()
+
+            if not detect_face():
+                continue
+
+            if detect_eye() != status:
+                continue
 
             print(t[1] + " " + str(testingValue))
             print(r)
-            ans = input ("answer: ")
+            # ans = input ("answer: ")
+            ans = detect_gestures()
+            time.sleep(3)
 
-            if ans == t[1]:
+            if ans == None:
+                continue
+            elif ans == t[1]:
                 # print(testingValue in r)
                 if testingValue in r:
                     r[testingValue] += 1
@@ -53,6 +77,12 @@ def eye_exam():
                 
                 if testingValue != 0.1:
                     testingValue -= 0.1
+            
+            while detect_gestures() != None:
+                time.sleep(0)
+
+            
+            
                     
         if status == "left":
             lResult = testingValue
@@ -63,5 +93,6 @@ def eye_exam():
     
     return lResult, rResult
 
-# result = eye_exam()
-# print(result)
+if __name__ == "__main__":
+    result = eye_exam()
+    print(result)
