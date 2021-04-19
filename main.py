@@ -46,7 +46,6 @@ def main():
         #######################
 
         imgE = leftEyeExam.GenerateQuestion()  # dist
-        cv2.imshow(WINDOW_NAME, imgE)
 
         ###########################
         ### Detect face and eye ###
@@ -54,9 +53,12 @@ def main():
 
         gesture, img = gd(img)
         prev_gesture.append(gesture)
-        prev_gesture = prev_gesture[-10:]
+        prev_gesture = prev_gesture[-11:]
 
-        if not all([x == None for x in prev_gesture]):
+        cv2.imshow(WINDOW_NAME, imgE)
+        cv2.imshow('WINDOW_NAME', img)
+
+        if not all([x == None for x in prev_gesture[:-1]]):
             continue
 
         if leftEyeExam.CheckAns(gesture):
@@ -73,3 +75,5 @@ def main():
     cap.release()
     cv2.destroyAllWindows()
 
+if __name__ == '__main__':
+    main()

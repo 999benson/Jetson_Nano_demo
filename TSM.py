@@ -403,7 +403,7 @@ class GestureDetector(object):
                 ret = catigories[self.idx]  
 
             t2 = time.time()
-            print(f"{self.i_frame} {catigories[self.idx]}")
+            # print(f"{self.i_frame} {catigories[self.idx]}")
 
             self.current_time = t2 - t1
 
