@@ -211,10 +211,10 @@ catigories = [
     "Sliding Two Fingers Right",  # 12
     "Sliding Two Fingers Up",  # 13
     "Stop Sign",  # 14
-    "Swiping Down",  # 15
-    "Swiping Left",  # 16
-    "Swiping Right",  # 17
-    "Swiping Up",  # 18
+    "down",  # 15
+    "left",  # 16
+    "right",  # 17
+    "up",  # 18
     "Thumb Down",  # 19
     "Thumb Up",  # 20
     "Turning Hand Clockwise",  # 21
@@ -399,7 +399,7 @@ class GestureDetector(object):
             idx_ = np.argmax(avg_logit, axis=1)[0]
 
             self.idx, self.history = process_output(idx_, self.history)
-            if catigories[self.idx] in [9, 14, 15, 16, 17, 18]:
+            if catigories[self.idx] in [9, 15, 16, 17, 18]:
                 ret = catigories[self.idx]  
 
             t2 = time.time()

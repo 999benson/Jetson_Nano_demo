@@ -33,47 +33,46 @@ def eye_exam():
         testingValue = 0.1
         count = 0
         consecutive = False
-        r = {0: 2, 0.1: 0}
+        dict = {0: 2, 0.1: 0}
 
         while True:
-            t = ti.show_test_image(testingValue)
-            cv2.imshow('Image', t[0])
+            imgE, ans = ti.show_test_image(testingValue)
+            cv2.imshow('Image', imgE)
             cv2.waitKey(1)
-            # cv2.destroyAllWindows()
-
+            
             if not detect_face():
                 continue
 
             if detect_eye() != status:
                 continue
 
-            print(t[1] + " " + str(testingValue))
-            print(r)
-            # ans = input ("answer: ")
-            ans = detect_gestures()
+            print(ans + " " + str(testingValue))
+            print(dict)
+            
+            response = detect_gestures()
             time.sleep(3)
 
-            if ans == None:
+            if response == None:
                 continue
-            elif ans == t[1]:
+            elif response == ans:
                 # print(testingValue in r)
-                if testingValue in r:
-                    r[testingValue] += 1
-                    if (testingValue + 0.1) in r:
-                        if r[testingValue] >= 2 and r[testingValue + 0.1] <= -2:
+                if testingValue in dict:
+                    dict[testingValue] += 1
+                    if (testingValue + 0.1) in dict:
+                        if dict[testingValue] >= 2 and dict[testingValue + 0.1] <= -2:
                             break
                 else:
-                    r[testingValue] = 1
+                    dict[testingValue] = 1
                 testingValue += 0.1
             else :
-                if testingValue in r:
-                    r[testingValue] -= 1
-                    if (testingValue - 0.1) in r:
-                        if r[testingValue - 0.1] >= 2 and r[testingValue] <= -2:
+                if testingValue in dict:
+                    dict[testingValue] -= 1
+                    if (testingValue - 0.1) in dict:
+                        if dict[testingValue - 0.1] >= 2 and dict[testingValue] <= -2:
                             testingValue -= 0.1
                             break
                 else:
-                    r[testingValue] = -1
+                    dict[testingValue] = -1
                 
                 if testingValue != 0.1:
                     testingValue -= 0.1
