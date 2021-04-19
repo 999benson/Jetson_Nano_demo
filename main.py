@@ -73,5 +73,3 @@ def main():
     cap.release()
     cv2.destroyAllWindows()
 
-
-print(None)

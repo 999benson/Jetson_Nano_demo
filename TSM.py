@@ -196,33 +196,33 @@ def get_transform():
 
 
 catigories = [
-    "Doing other things",  # 0
-    "Drumming Fingers",  # 1
+    "No gesture",  # 0
+    "No gesture",  # 1
     "No gesture",  # 2
-    "Pulling Hand In",  # 3
-    "Pulling Two Fingers In",  # 4
-    "Pushing Hand Away",  # 5
-    "Pushing Two Fingers Away",  # 6
-    "Rolling Hand Backward",  # 7
-    "Rolling Hand Forward",  # 8
+    "No gesture",  # 3
+    "No gesture",  # 4
+    "No gesture",  # 5
+    "No gesture",  # 6
+    "No gesture",  # 7
+    "No gesture",  # 8
     "Shaking Hand",  # 9
-    "Sliding Two Fingers Down",  # 10
-    "Sliding Two Fingers Left",  # 11
-    "Sliding Two Fingers Right",  # 12
-    "Sliding Two Fingers Up",  # 13
+    "No gesture",  # 10
+    "No gesture",  # 11
+    "No gesture",  # 12
+    "No gesture",  # 13
     "Stop Sign",  # 14
     "down",  # 15
     "left",  # 16
     "right",  # 17
     "up",  # 18
-    "Thumb Down",  # 19
-    "Thumb Up",  # 20
-    "Turning Hand Clockwise",  # 21
-    "Turning Hand Counterclockwise",  # 22
-    "Zooming In With Full Hand",  # 23
-    "Zooming In With Two Fingers",  # 24
-    "Zooming Out With Full Hand",  # 25
-    "Zooming Out With Two Fingers"  # 26
+    "No gesture",  # 19
+    "No gesture",  # 20
+    "No gesture",  # 21
+    "No gesture",  # 22
+    "No gesture",  # 23
+    "No gesture",  # 24
+    "No gesture",  # 25
+    "No gesture"  # 26
 ]
 
 
