@@ -1,3 +1,7 @@
+# 參考資料：
+# https://ithelp.ithome.com.tw/articles/10227131
+# https://www.emqx.cn/blog/how-to-use-mqtt-in-python
+
 import random
 import time
 
